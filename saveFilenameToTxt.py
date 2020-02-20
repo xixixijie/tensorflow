@@ -21,8 +21,11 @@ def ListFilesToTxt(dir, file, wildcard, recursion):
 
 
 def Test():
-    dir = "/home/aiyunji/cxj/models/research/deeplab/datasets/lv/image"
-    outfile = "/home/aiyunji/cxj/models/research/deeplab/datasets/lv/index/train.txt"
+    #dir放的是image的路径
+    dir = "models/research/deeplab/datasets/lv/image"
+    #out放的是train.txt的路径，可以改成val.txt等，不过我都是从train.txt复制一部分进val.txt的，可以写程序改成随机分配。
+    outfile = "models/research/deeplab/datasets/lv/index/train.txt"
+    
     wildcard = ".txt .exe .dll .lib"
 
     file = open(outfile, "w")

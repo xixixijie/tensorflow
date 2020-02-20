@@ -15,7 +15,7 @@ import numpy as np
 from skimage import img_as_ubyte
 
 
-# from sys import argv
+# from sys import argv 运行改文件需要参数，即testdata地址
 #文件夹地址 pycharm在参数中改 edit configuration
 
 def main():
@@ -29,6 +29,7 @@ def main():
     args = parser.parse_args()
 
     json_file = args.json_file
+    #总的类别
     captions=['0: _background_', '1: inskull', '2: outskull', '3: lateral-ventricles', '4: ruler']
     print("captions",captions)
     # freedom
@@ -44,21 +45,7 @@ def main():
             lbl, lbl_names = utils.labelme_shapes_to_label(img.shape, data['shapes'])
             # print("lbl_names",lbl_names)
 
-            if 'ruler' in lbl_names.keys() and lbl_names['ruler']!=4:
-                lbl_names['ruler']=4
-                for i in range(len(lbl)):
-                    for j in range(len(lbl[0])):
-                        if lbl[i][j]==1:
-                            lbl[i][j]=3
-
-            if 'lateral-ventricles' in lbl_names.keys() and lbl_names['lateral-ventricles']!=3:
-                lbl_names['lateral-ventricles']=3
-                for i in range(len(lbl)):
-                    for j in range(len(lbl[0])):
-                        if lbl[i][j]==2:
-                            lbl[i][j]=4
-
-
+      
             # captions = ['%d: %s' % (l, name) for l, name in enumerate(lbl_names)]
             # print("caption",captions)
             lbl_viz = utils.draw_label(lbl, img, captions)

@@ -2,8 +2,9 @@
 
 import matplotlib.pyplot as plt
 import cv2
-
-img=cv2.imread("/home/aiyunji/Desktop/testdata/mask/10-02-08-刘巧珍_videoImg_17.png")
+#文件地址
+imageAddress=""
+img=cv2.imread("/home/aiyunji/Desktop/testdata/mask/1.png")
 print(img.shape)
 
 plt.imshow(img)
